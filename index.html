@@ -150,6 +150,14 @@ e até 3005 nossas almas estarão conectadas.
 
     <!-- Música de fundo -->
     <audio id="bg-music" src="./Je%20Te%20Laisserai%20Des%20Mots%20(Extended).mp3" autoplay loop></audio>
+    <div id="music-popup" class="music-popup" style="display:none;">
+      <div class="music-popup-content">
+        <span class="music-popup-close" id="close-music-popup">&times;</span>
+        <div class="music-popup-heart">💖</div>
+        <h2>Deixe esse momento mais especial</h2>
+        <button id="play-music-btn" class="music-popup-btn">Dar play 🎵</button>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer class="romantic-footer">
@@ -160,13 +168,33 @@ e até 3005 nossas almas estarão conectadas.
 
     <script src="script.js"></script>
     <script>
-document.addEventListener('DOMContentLoaded', function() {
+function tryPlayMusic() {
     var audio = document.getElementById('bg-music');
+    var popup = document.getElementById('music-popup');
+    var btn = document.getElementById('play-music-btn');
     if (audio) {
         audio.volume = 0.5;
-        // Tenta tocar imediatamente
-        audio.play();
+        var playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(function() {
+                popup.style.display = 'flex';
+            });
+        }
     }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    tryPlayMusic();
+    var btn = document.getElementById('play-music-btn');
+    var popup = document.getElementById('music-popup');
+    var close = document.getElementById('close-music-popup');
+    btn.addEventListener('click', function() {
+        var audio = document.getElementById('bg-music');
+        audio.play();
+        popup.style.display = 'none';
+    });
+    close.addEventListener('click', function() {
+        popup.style.display = 'none';
+    });
 });
 
     // Contador de tempo juntos
