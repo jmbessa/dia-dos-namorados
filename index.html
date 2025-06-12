@@ -132,6 +132,9 @@ e até 3005 nossas almas estarão conectadas.
                 <div class="photo-frame">
                     <img src="fotos/IMG-20250611-WA0058.jpg" alt="Foto 15">
                 </div>
+                <div class="photo-frame">
+                    <img src="fotos/WhatsApp%20Image%202025-06-11%20at%2022.28.56_d8cfad27.jpg" alt="Foto 16">
+                </div>
             </div>
         </section>
 
@@ -146,7 +149,7 @@ e até 3005 nossas almas estarão conectadas.
     </div>
 
     <!-- Música de fundo -->
-    <audio id="bg-music" src="Je Te Laisserai Des Mots (Extended).mp3" autoplay loop></audio>
+    <audio id="bg-music" src="./Je%20Te%20Laisserai%20Des%20Mots%20(Extended).mp3" autoplay loop></audio>
 
     <!-- Footer -->
     <footer class="romantic-footer">
@@ -157,6 +160,15 @@ e até 3005 nossas almas estarão conectadas.
 
     <script src="script.js"></script>
     <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var audio = document.getElementById('bg-music');
+    if (audio) {
+        audio.volume = 0.5;
+        // Tenta tocar imediatamente
+        audio.play();
+    }
+});
+
     // Contador de tempo juntos
     function updateLoveCounter() {
         const start = new Date('2023-01-20T00:00:00');
@@ -184,15 +196,6 @@ e até 3005 nossas almas estarão conectadas.
     }
     setInterval(updateLoveCounter, 1000);
     updateLoveCounter();
-
-    document.addEventListener('DOMContentLoaded', function() {
-        var audio = document.getElementById('bg-music');
-        if (audio) {
-            audio.volume = 0.5;
-            // Tenta tocar imediatamente
-            audio.play();
-        }
-    });
     </script>
 </body>
 </html>
