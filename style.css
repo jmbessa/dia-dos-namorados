@@ -383,7 +383,7 @@ body {
   padding: 38px 32px 32px 32px;
   text-align: center;
   position: relative;
-  min-width: 300px;
+  min-width: 320px;
   max-width: 90vw;
   animation: popupScale 0.6s cubic-bezier(.77,0,.18,1);
 }
@@ -439,6 +439,33 @@ body {
 @keyframes fadeInPopup {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+@media (max-width: 900px) {
+  .music-popup-content {
+    min-width: 0;
+    padding: 18px 6vw 18px 6vw;
+  }
+  .music-popup-content h2 {
+    font-size: 1.3rem;
+  }
+  .music-popup-btn {
+    font-size: 1rem;
+    padding: 10px 10vw;
+  }
+}
+@media (max-width: 600px) {
+  .music-popup-content {
+    min-width: 0;
+    padding: 12px 2vw 12px 2vw;
+    border-radius: 18px;
+  }
+  .music-popup-content h2 {
+    font-size: 1.1rem;
+  }
+  .music-popup-btn {
+    font-size: 0.95rem;
+    padding: 10px 6vw;
+  }
 }
 
 /* Responsividade */
